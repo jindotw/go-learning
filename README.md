@@ -1,2 +1,2 @@
-# go_learning
+# go-learning
 keep track of the concepts touched and the experiments performed when learning Go
