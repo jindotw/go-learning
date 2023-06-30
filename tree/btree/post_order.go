@@ -12,7 +12,7 @@ func PostOrderRecur(root *Node) {
 }
 
 func PostOrderIter(root *Node) {
-	st := make([]*Node, 0, 20)
+	st := make([]*Node, 0, 10)
 	if root != nil {
 		st = append(st, root)
 	}
@@ -20,22 +20,20 @@ func PostOrderIter(root *Node) {
 	for len(st) > 0 {
 		last := len(st) - 1
 		node := st[last]
-		st = st[:last]
 
+		// root node
 		if node.isLeftEmpty() && node.isRightEmpty() {
+			st = st[:last]
 			fmt.Println(node.Value)
 		} else {
-			st = append(st, node)
 			if !node.isRightEmpty() {
 				st = append(st, node.Right)
 				node.Right = nil
 			}
-
 			if !node.isLeftEmpty() {
 				st = append(st, node.Left)
 				node.Left = nil
 			}
 		}
-
 	}
 }
