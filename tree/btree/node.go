@@ -18,8 +18,20 @@ func (node *Node) isRightEmpty() bool {
 	return node.Right != nil
 }
 
+// ConstructTree
+//
+//	  4
+//	2   6
+//
+// 1   3    8
+// /*
 func ConstructTree() *Node {
-	lft := &Node{nil, nil, 1}
-	rgt := &Node{nil, nil, 3}
-	return &Node{lft, rgt, 2}
+	one := &Node{nil, nil, 1}
+	three := &Node{nil, nil, 3}
+	eight := &Node{nil, nil, 8}
+
+	two := &Node{one, three, 2}
+	six := &Node{nil, eight, 6}
+
+	return &Node{two, six, 4}
 }
