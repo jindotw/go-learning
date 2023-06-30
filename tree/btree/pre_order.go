@@ -2,13 +2,13 @@ package btree
 
 import "fmt"
 
-func PreOrderRecur(node *Node) {
-	if node == nil {
+func PreOrderRecur(root *Node) {
+	if root == nil {
 		return
 	}
-	fmt.Println(node.GetValue())
-	PreOrderRecur(node.Left)
-	PreOrderRecur(node.Right)
+	fmt.Println(root.GetValue())
+	PreOrderRecur(root.Left)
+	PreOrderRecur(root.Right)
 }
 
 func PreOrderIter(root *Node) {

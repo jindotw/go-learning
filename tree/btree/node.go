@@ -11,11 +11,11 @@ func (node *Node) GetValue() int {
 }
 
 func (node *Node) isLeftEmpty() bool {
-	return node.Left != nil
+	return node.Left == nil
 }
 
 func (node *Node) isRightEmpty() bool {
-	return node.Right != nil
+	return node.Right == nil
 }
 
 // ConstructTree
