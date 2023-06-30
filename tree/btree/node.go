@@ -35,3 +35,12 @@ func ConstructTree() *Node {
 
 	return &Node{two, six, 4}
 }
+
+func pop(st *[]*Node) *Node {
+	last := len(*st) - 1
+	if last >= 0 {
+		defer func() { *st = (*st)[:last] }()
+		return (*st)[last]
+	}
+	return nil
+}
