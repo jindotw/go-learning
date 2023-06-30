@@ -41,10 +41,7 @@ func InOrderCommon(root *Node) {
 			if !node.isRightEmpty() {
 				st = append(st, node.Right)
 			}
-
-			st = append(st, node)
-			st = append(st, nil)
-
+			st = append(st, node, nil)
 			if !node.isLeftEmpty() {
 				st = append(st, node.Left)
 			}
