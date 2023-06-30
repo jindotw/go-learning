@@ -37,3 +37,29 @@ func PostOrderIter(root *Node) {
 		}
 	}
 }
+
+func PostOrderCommon(root *Node) {
+	st := make([]*Node, 0, 10)
+	if root != nil {
+		st = append(st, root)
+	}
+
+	for len(st) > 0 {
+		node := pop(&st)
+		if node != nil {
+			st = append(st, node)
+			st = append(st, nil)
+
+			if !node.isRightEmpty() {
+				st = append(st, node.Right)
+			}
+
+			if !node.isLeftEmpty() {
+				st = append(st, node.Left)
+			}
+		} else {
+			node = pop(&st)
+			fmt.Println(node.GetValue())
+		}
+	}
+}
