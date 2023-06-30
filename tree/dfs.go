@@ -11,8 +11,16 @@ func preOrder(tree *btree.Node) {
 	btree.PreOrderIter(tree)
 }
 
+func inOrder(tree *btree.Node) {
+	btree.InOrderRecur(tree)
+	fmt.Println()
+	btree.InOrderIter(tree)
+}
+
 func postOrder(tree *btree.Node) {
 	btree.PostOrderRecur(tree)
+	fmt.Println()
+	btree.PostOrderIter(tree)
 }
 
 func main() {
