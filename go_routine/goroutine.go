@@ -2,17 +2,20 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
-func start(obj chan int) {
+func start(ch chan int) {
 	fmt.Println("In go routine")
-	obj <- 3
+	ch <- 3
+	close(ch)
 }
 
 func main() {
-	obj := make(chan int)
+	ch := make(chan int)
 	fmt.Println("In main, about to send to channel")
-	go start(obj)
-	val := <-obj
+	go start(ch)
+	time.Sleep(50 * time.Millisecond)
+	val := <-ch
 	fmt.Println("Exiting main with chan val", val)
 }
