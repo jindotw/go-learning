@@ -26,9 +26,9 @@ func postOrder(tree *btree.Node) {
 	fmt.Println()
 	btree.PostOrderIter(tree)
 	fmt.Println()
-	btree.PostOrderCommon(tree)
+	btree.PostOrderCommon(btree.ConstructTree())
 }
 
 func main() {
-	inOrder(btree.ConstructTree())
+	postOrder(btree.ConstructTree())
 }

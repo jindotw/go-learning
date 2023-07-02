@@ -3,12 +3,11 @@ package btree
 import "fmt"
 
 func PostOrderRecur(root *Node) {
-	if root == nil {
-		return
+	if root != nil {
+		PostOrderRecur(root.Left)
+		PostOrderRecur(root.Right)
+		fmt.Println(root.GetValue())
 	}
-	PostOrderRecur(root.Left)
-	PostOrderRecur(root.Right)
-	fmt.Println(root.GetValue())
 }
 
 func PostOrderIter(root *Node) {
@@ -21,10 +20,9 @@ func PostOrderIter(root *Node) {
 		last := len(st) - 1
 		node := st[last]
 
-		// root node
 		if node.isLeftEmpty() && node.isRightEmpty() {
+			fmt.Println(node.GetValue())
 			st = st[:last]
-			fmt.Println(node.Value)
 		} else {
 			if !node.isRightEmpty() {
 				st = append(st, node.Right)
@@ -46,20 +44,17 @@ func PostOrderCommon(root *Node) {
 
 	for len(st) > 0 {
 		node := pop(&st)
-		if node != nil {
-			st = append(st, node)
-			st = append(st, nil)
 
+		if node != nil {
+			st = append(st, node, nil)
 			if !node.isRightEmpty() {
 				st = append(st, node.Right)
 			}
-
 			if !node.isLeftEmpty() {
 				st = append(st, node.Left)
 			}
 		} else {
-			node = pop(&st)
-			fmt.Println(node.GetValue())
+			fmt.Println(pop(&st).GetValue())
 		}
 	}
 }
