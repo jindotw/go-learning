@@ -20,10 +20,8 @@ func InOrderIter(root *Node) {
 			st = append(st, curr)
 			curr = curr.Left
 		} else {
-			last := len(st) - 1
-			curr = st[last]
-			st = st[:last]
-			fmt.Println(curr.Value)
+			curr = pop(&st)
+			fmt.Println(curr.GetValue())
 			curr = curr.Right
 		}
 	}

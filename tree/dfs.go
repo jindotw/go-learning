@@ -30,5 +30,5 @@ func postOrder(tree *btree.Node) {
 }
 
 func main() {
-	postOrder(btree.ConstructTree())
+	inOrder(btree.ConstructTree())
 }
